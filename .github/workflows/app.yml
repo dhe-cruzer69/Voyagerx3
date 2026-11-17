@@ -31,16 +31,16 @@ jobs:
         node: [20.x]
     steps:
       - name: Setup repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262  # v4
 
       - name: Setup Node
-        uses: actions/setup-node@v4.0.2
+        uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8  # v4.0.2
         with:
           node-version: ${{ matrix.node }}
           cache: "npm"
 
       - name: Setup Expo and EAS
-        uses: expo/expo-github-action@v7
+        uses: expo/expo-github-action@d300b960e9f91a8c59b2aaca92e89ad70b0785ac  # v7
         with:
           token: ${{ secrets.EXPO_TOKEN }}
           expo-version: latest
@@ -187,7 +187,7 @@ jobs:
 
       - name: Upload Android APK
         if: ${{ github.event.inputs.action == 'file' && matrix.platform == 'android' }}
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02  # v4
         with:
           name: termix_android
           path: build-artifacts/termix_android.apk
@@ -196,7 +196,7 @@ jobs:
 
       - name: Upload iOS IPA
         if: ${{ github.event.inputs.action == 'file' && matrix.platform == 'apple' }}
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02  # v4
         with:
           name: termix_ios_universal
           path: build-artifacts/termix_ios.ipa
